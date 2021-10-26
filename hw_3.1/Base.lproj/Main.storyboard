@@ -71,6 +71,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="passwordTF" destination="mek-5d-84G" id="9SR-TI-58U"/>
                         <outlet property="userNameTF" destination="NuN-eh-MXd" id="6UR-c7-UjT"/>
                     </connections>
                 </viewController>

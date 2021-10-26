@@ -10,10 +10,18 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet var userNameTF: UITextField!
+    @IBOutlet var passwordTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        userNameTF.textContentType = .username
+        passwordTF.textContentType = .password
+        
+        userNameTF.autocorrectionType = .no
+        passwordTF.autocorrectionType = .no
+        
+        passwordTF.isSecureTextEntry = true
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -23,5 +31,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userNameTF.text = ""
+        passwordTF.text = ""
     }
 }
