@@ -37,6 +37,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Log in">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="xs9-I0-AfI" kind="show" id="pYe-Ls-qkp"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OU3-1v-ySW">
                                 <rect key="frame" x="20" y="512" width="374" height="31"/>
@@ -78,7 +81,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="b9c-tR-6Ks">
             <objects>
-                <viewController id="xs9-I0-AfI" customClass="WelcomeViewController" customModule="hw_3_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="xs9-I0-AfI" customClass="WelcomeViewController" customModule="hw_3_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMZ-vd-GKZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,6 +100,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="logOutButtonPressed" destination="xs9-I0-AfI" eventType="touchUpInside" id="jhK-9I-ntE"/>
+                                    <segue destination="PWw-LC-MiW" kind="unwind" unwindAction="unwindFor:" id="cxQ-vh-bE1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -109,11 +113,13 @@
                             <constraint firstItem="jv6-Ud-wUI" firstAttribute="top" secondItem="QuO-fk-zy4" secondAttribute="top" constant="200" id="qBY-oo-Es5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="wF7-eA-AVO"/>
                     <connections>
                         <outlet property="userNameLabel" destination="jv6-Ud-wUI" id="fnV-kn-VAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rcd-6E-8JJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="PWw-LC-MiW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="739" y="86"/>
         </scene>
