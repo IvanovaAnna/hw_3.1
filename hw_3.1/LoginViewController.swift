@@ -33,4 +33,30 @@ class LoginViewController: UIViewController {
         userNameTF.text = ""
         passwordTF.text = ""
     }
+    @IBAction func forgotUserNameButtonPressed() {
+        showAlertForgotUserName(title: "Oops!", message: "Your name is User")
+    }
+    @IBAction func forgotPasswordButtonPressed() {
+        showAlertForgotPassword(title: "Oops!", message: "your password is Password")
+    }
+}
+
+extension LoginViewController {
+    private func showAlertForgotUserName(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okActionForgotUserName = UIAlertAction(title: "OK", style: .default) { _ in
+            self.userNameTF.text = ""
+        }
+        alert.addAction(okActionForgotUserName)
+        present(alert, animated: true)
+    }
+    
+    private func showAlertForgotPassword(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okActionForgotPassword = UIAlertAction(title: "OK", style: .default) { _ in
+            self.passwordTF.text = ""
+        }
+        alert.addAction(okActionForgotPassword)
+        present(alert, animated: true)
+    }
 }
