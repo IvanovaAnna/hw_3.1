@@ -38,7 +38,7 @@
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="xs9-I0-AfI" kind="show" id="pYe-Ls-qkp"/>
+                                    <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="SOR-zU-A4V"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OU3-1v-ySW">

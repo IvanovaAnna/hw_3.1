@@ -24,6 +24,19 @@ class LoginViewController: UIViewController {
         
     }
 
+    @IBAction func loginButtonPressed() {
+        let userName = "User"
+        let password = "Password"
+        guard let correctUserName = userNameTF.text,
+              let correctPassword = passwordTF.text,
+                !correctUserName.isEmpty && !correctPassword.isEmpty,
+                correctUserName == userName && correctPassword == password
+        else {
+            showAlertCorrectData(title: "invalid login or password", message: "Please, enter correct login and password")
+            return
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let userNameVC = segue.destination as? WelcomeViewController else { return }
         userNameVC.userName = userNameTF.text
@@ -42,6 +55,15 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
+    private func showAlertCorrectData(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okActionCorrectData = UIAlertAction(title: "OK", style: .default) { _ in
+            self.passwordTF.text = ""
+        }
+        alert.addAction(okActionCorrectData)
+        present(alert, animated: true)
+    }
+    
     private func showAlertForgotUserName(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okActionForgotUserName = UIAlertAction(title: "OK", style: .default) { _ in
