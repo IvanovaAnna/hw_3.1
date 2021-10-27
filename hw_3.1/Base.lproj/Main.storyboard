@@ -39,6 +39,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="loginButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="SOR-zU-A4V"/>
+                                    <segue destination="xs9-I0-AfI" kind="show" id="nbh-OP-O5g"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OU3-1v-ySW">
@@ -88,7 +89,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="b9c-tR-6Ks">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="xs9-I0-AfI" customClass="WelcomeViewController" customModule="hw_3_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Welcome" modalPresentationStyle="fullScreen" id="xs9-I0-AfI" customClass="WelcomeViewController" customModule="hw_3_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMZ-vd-GKZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

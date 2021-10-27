@@ -23,6 +23,11 @@ class LoginViewController: UIViewController {
         passwordTF.isSecureTextEntry = true
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let userNameVC = segue.destination as? WelcomeViewController else { return }
+        userNameVC.userName = userNameTF.text
+    }
 
     @IBAction func loginButtonPressed() {
         let userName = "User"
@@ -35,11 +40,6 @@ class LoginViewController: UIViewController {
             showAlertCorrectData(title: "invalid login or password", message: "Please, enter correct login and password")
             return
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let userNameVC = segue.destination as? WelcomeViewController else { return }
-        userNameVC.userName = userNameTF.text
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -57,9 +57,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     private func showAlertCorrectData(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okActionCorrectData = UIAlertAction(title: "OK", style: .default) { _ in
-            self.passwordTF.text = ""
-        }
+        let okActionCorrectData = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okActionCorrectData)
         present(alert, animated: true)
     }
