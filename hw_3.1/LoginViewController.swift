@@ -15,20 +15,31 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTF.textContentType = .username
-        passwordTF.textContentType = .password
-        
         userNameTF.autocorrectionType = .no
-        passwordTF.autocorrectionType = .no
+        userNameTF.returnKeyType = .next
         
+        passwordTF.textContentType = .password
+        passwordTF.autocorrectionType = .no
         passwordTF.isSecureTextEntry = true
+        passwordTF.returnKeyType = .done
         
     }
     
+    //data transfer between screens
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let userNameVC = segue.destination as? WelcomeViewController else { return }
         userNameVC.userName = userNameTF.text
     }
-
+    
+    //hide keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let _ = touches.first {
+            view.endEditing(true)
+        }
+        super .touchesBegan(touches, with: event)
+    }
+    
+    //checking the correctness of the password and login
     @IBAction func loginButtonPressed() {
         let userName = "User"
         let password = "Password"
